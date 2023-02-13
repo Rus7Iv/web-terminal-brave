@@ -25,4 +25,50 @@ h1{
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 800;
+  margin-bottom: 100px;
 }
+a{
+  text-decoration: none;
+}
+img{
+  width: 100%;
+}
+.operators-card{
+  width: 93%;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+.item{
+  /* width: 31%; */
+  justify-content: center;
+  text-align: center;
+  list-style-type: none;
+  border-radius: 10px;
+
+  position: relative;
+  border: 2px solid #7affff;
+  overflow: hidden;
+
+  height: 25vw;
+  width: 30%;
+  /* opacity: 0;
+  animation-duration: 1s;
+  animation-name: appearance;
+    animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+    animation-timing-function: linear;   */
+}
+
+
+/* @keyframes appearance
+{
+  from
+  {
+    opacity: 0;
+  }
+  to
+  {
+    opacity: 1;
+  }
+} */
