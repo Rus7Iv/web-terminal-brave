@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 const TopComponent = () => {
@@ -54,7 +54,6 @@ const TopComponent = () => {
           <a href="">
             <img
               src="https://toplogos.ru/images/thumbs/preview-logo-mts.png"
-              //src="/image/mts.jpg"
               alt="Логотип MTS"
             />
           </a>
