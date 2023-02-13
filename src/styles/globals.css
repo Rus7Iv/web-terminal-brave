@@ -21,11 +21,12 @@ body {
   overflow-x: hidden;
 }
 h1{
-  font-size: 50px;
+  font-size: 7vw;
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 800;
   margin-bottom: 100px;
+  text-shadow: 1px 1px 2px black;
 }
 a{
   text-decoration: none;
@@ -36,11 +37,10 @@ img{
 .operators-card{
   width: 93%;
   height: 200px;
-  display: flex;
-  justify-content: space-between;
+  display: inline-flex;
+  justify-content: center;
 }
 .item{
-  /* width: 31%; */
   justify-content: center;
   text-align: center;
   list-style-type: none;
@@ -50,25 +50,12 @@ img{
   border: 2px solid #7affff;
   overflow: hidden;
 
-  height: 25vw;
+  height: 20vw;
   width: 30%;
-  /* opacity: 0;
-  animation-duration: 1s;
-  animation-name: appearance;
-    animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-    animation-timing-function: linear;   */
+  max-width: 200px;
+  max-height: 200px;
+  min-width: 100px;
+
+  margin-left: 1.5rem;
+  vertical-align: middle;
 }
-
-
-/* @keyframes appearance
-{
-  from
-  {
-    opacity: 0;
-  }
-  to
-  {
-    opacity: 1;
-  }
-} */

@@ -1,8 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
-import { motion } from "framer-motion";
+import TopComponent from "components/TopComponent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,129 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: {
-              scale: 0.4,
-              opacity: 0,
-            },
-            visible: {
-              scale: 1,
-              opacity: 1,
-              transition: {
-                delay: 0.2,
-              },
-            },
-          }}
-        >
-          <h1 className="title">Web-terminal</h1>
-        </motion.div>
-        <div className="operators-card">
-          <motion.li
-            className="item"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: {
-                scale: 0.4,
-                opacity: 0,
-              },
-              visible: {
-                scale: 1,
-                opacity: 1,
-                transition: {
-                  delay: 0.2,
-                },
-              },
-            }}
-            whileHover={{
-              position: "relative",
-              zIndex: 1,
-              background: "white",
-              scale: 1.2,
-              transition: {
-                duration: 0.2,
-              },
-            }}
-          >
-            <a href="">
-              <img
-                src="https://toplogos.ru/images/thumbs/preview-logo-mts.png"
-                alt="Логотип MTS"
-              />
-            </a>
-          </motion.li>
-          <motion.li
-            className="item"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: {
-                scale: 0.5,
-                opacity: 0,
-              },
-              visible: {
-                scale: 1,
-                opacity: 1,
-                transition: {
-                  delay: 0.2,
-                },
-              },
-            }}
-            whileHover={{
-              position: "relative",
-              zIndex: 1,
-              background: "white",
-              scale: 1.2,
-              transition: {
-                duration: 0.2,
-              },
-            }}
-          >
-            <a href="">
-              <img
-                src="https://toplogos.ru/images/thumbs/preview-logo-megafon.png"
-                alt="Логотип Megafon"
-              />
-            </a>
-          </motion.li>
-          <motion.li
-            className="item"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: {
-                scale: 0.4,
-                opacity: 0,
-              },
-              visible: {
-                scale: 1,
-                opacity: 1,
-                transition: {
-                  delay: 0.2,
-                },
-              },
-            }}
-            whileHover={{
-              position: "relative",
-              zIndex: 1,
-              background: "white",
-              scale: 1.2,
-              transition: {
-                duration: 0.2,
-              },
-            }}
-          >
-            <a href="">
-              <img
-                src="https://toplogos.ru/images/thumbs/preview-logo-beeline.png"
-                alt="Логотип Beeline"
-              />
-            </a>
-          </motion.li>
-        </div>
+        <TopComponent />
       </main>
     </>
   );
