@@ -13,6 +13,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'Open Sans';
 }
 
 html,
@@ -41,7 +42,6 @@ body{
 
 h1{
   font-size: 7vw;
-  font-family: 'Open Sans';
   font-style: normal;
   font-weight: 800;
   margin-bottom: 100px;
@@ -58,6 +58,7 @@ img{
   height: 200px;
   display: inline-flex;
   justify-content: center;
+  margin-bottom: 1.5rem;
 }
 .item{
   justify-content: center;
@@ -76,6 +77,47 @@ img{
   min-width: 100px;
 
   margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
   vertical-align: middle;
   box-shadow: 1px 1px 10px rgb(96, 92, 92);
+
+  background-color: white;
+}
+
+.modal{
+  filter: blur(5px);
+}
+
+.operator-payment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  margin: 20px;
+  width: 500px;
+  max-width: 100%;
+  background-color: rgb(255, 255, 255);
+  height: 300px;
+  font-size: 2.5vw;
+  font-weight:700;
+  border-radius: 20px;
+
+  margin-bottom: 1.5rem;
+  
+  /* @media (max-width: 600px) {
+    margin: 20px 0; */
+}
+
+.payment{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem;
+  min-height: 100vh;
+}
+.sum{
+  display: flex;
+  align-items: left;
+  flex-direction: column;
 }

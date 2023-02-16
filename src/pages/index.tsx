@@ -3,29 +3,32 @@ import Head from "next/head";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import TopComponent from "components/TopComponent";
-import {Box, Button, Typography, Modal } from '@mui/material';
+//import { Box, Button, Typography, Modal } from "@mui/material";
 import { ClientRequest } from "http";
+import Link from "next/link";
+
+// =================================
+import { motion } from "framer-motion";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const style = {
-  position: 'absolute' as 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  height: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
+// const style = {
+//   position: "absolute" as "absolute",
+//   top: "50%",
+//   left: "50%",
+//   transform: "translate(-50%, -50%)",
+//   width: 400,
+//   height: 400,
+//   bgcolor: "background.paper",
+//   border: "2px solid #000",
+//   boxShadow: 24,
+//   p: 4,
+// };
 
 export default function Home() {
-
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  // const [open, setOpen] = React.useState(false);
+  // const handleOpen = () => setOpen(true);
+  // const handleClose = () => setOpen(false);
 
   return (
     <>
@@ -38,7 +41,27 @@ export default function Home() {
       <main className={styles.main}>
         <TopComponent />
 
-        <Button onClick={handleOpen}>Open modal</Button>
+        {/* ============================================== */}
+
+        {/* <Button onClick={handleOpen}>
+          <motion.li
+            className="item"
+            whileHover={{
+              position: "relative",
+              zIndex: 1,
+              background: "white",
+              scale: 1.2,
+              transition: {
+                duration: 0.2,
+              },
+            }}
+          >
+            <img
+              src="https://toplogos.ru/images/thumbs/preview-logo-mts.png"
+              alt="Логотип MTS"
+            />
+          </motion.li>
+        </Button>
         <Modal
           open={open}
           onClose={handleClose}
@@ -53,8 +76,9 @@ export default function Home() {
               Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
             </Typography>
           </Box>
-        </Modal>
+        </Modal> */}
 
+        <Link legacyBehavior href={"/payment"}>Payment</Link>
 
       </main>
     </>
