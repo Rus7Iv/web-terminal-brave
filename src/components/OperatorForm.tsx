@@ -19,25 +19,28 @@ const OperatorForm = ({
   onBlurHandler,
 }: OperatorProps) => {
   return (
-    <div>
-      <div>
-        <PhoneInput
-          inputClass="input-box"
-          inputProps={{ name: "phone" }}
-          country={"ru"}
-          value={phoneValue}
-          onChange={onChange}
-          onBlur={onBlurHandler}
-        />
-        {phoneValue.length !== 11 && phoneInputDirty ? (
-          <div style={{ color: "red", fontSize: "small" }}>
-            Enter your phone number
-          </div>
-        ) : null}
-      </div>
+    <>
+      <PhoneInput
+        inputClass="input-box"
+        inputProps={{ name: "phone" }}
+        country={"ru"}
+        value={phoneValue}
+        onChange={onChange}
+        onBlur={onBlurHandler}
+        specialLabel="Phone"
+      />
+      {phoneValue.length !== 11 && phoneInputDirty ? (
+        <div style={{ color: "red", fontSize: "small" }}>
+          Enter your phone number
+        </div>
+      ) : null}
       <p className="react-tel-input">Amount</p>
-      <input onChange={onSumInputChange} value={inputValue} className="input-box"/>
-    </div>
+      <input
+        onChange={onSumInputChange}
+        value={inputValue}
+        className="input-box"
+      />
+    </>
   );
 };
 

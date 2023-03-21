@@ -90,6 +90,8 @@ img{
   box-shadow: 1px 1px 10px rgb(96, 92, 92);
 
   background-color: white;
+
+  cursor: pointer;
 }
 
 .operator-payment {
@@ -159,6 +161,7 @@ img{
     max-width: 200px;
     max-height: 200px;
     min-width: 100px;
+    margin-left: 0;
   }
   .operators-card{
     width: 100%;

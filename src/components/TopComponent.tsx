@@ -11,8 +11,8 @@ export const TopComponent = () => {
       <div className="operators-card">
         {operators.map((res) => {
           return (
-            <Link legacyBehavior href={`/payment/${res.name}`}>
-              <motion.li
+            <Link legacyBehavior href={`/payment/${res.name}`} key={res.name}>
+              <motion.button
                 className="item"
                 initial="hidden"
                 animate="visible"
@@ -39,10 +39,8 @@ export const TopComponent = () => {
                   },
                 }}
               >
-                <div key={res.id}>
-                  <img src={res.img} alt={res.name} />
-                </div>
-              </motion.li>
+                <img src={res.img} alt={res.name} />
+              </motion.button>
             </Link>
           );
         })}
