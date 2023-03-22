@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Operator } from "../../types";
 import Snack from "../../components/Snack";
-import OperatorForm from "../../components/OperatorForm";
-import { AlertColor } from "@mui/material";
+import OperatorForm from "../../components/Payment/OperatorForm";
 import { Button } from "@mui/material";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { OperatorPayment } from "@/components/Payment/Payment.styled";
+import { Main, Title } from "@/components/styles";
+import Head from "next/head";
 
 enum AlertSeverity {
   SUCCES = "success",
@@ -19,41 +20,39 @@ const Payment = () => {
   const router = useRouter();
   const [state, setState] = useState({
     phoneValue: "",
-    inputValue: 1,
     phoneInputDirty: false,
     snackOpen: false,
     snackSeverity: AlertSeverity.ERROR,
     snackAlertText: "",
   });
 
+  function ServerAnswer() {
+    return new Promise((resolve, reject) => {
+      setState((state) => ({
+        ...state,
+        snackOpen: true,
+        snackSeverity: AlertSeverity.SUCCES,
+        snackAlertText: "The operation was successfully performed!",
+      }));
+      setTimeout(() => {
+        if (Math.random() < 0.5) {
+          resolve([router.push("/")]);
+        } else {
+          reject();
+          setState((state) => ({
+            ...state,
+            snackOpen: true,
+            snackSeverity: AlertSeverity.ERROR,
+            snackAlertText: "ERROR! Something's wrong...",
+          }));
+        }
+      });
+    });
+  }
+
   const handleSubmit = () => {
     if (state.phoneValue.length === 11) {
-      return new Promise((resolve, reject) => {
-        // setState((state) => ({
-        //   ...state,
-        //   snackOpen: true,
-        //   snackSeverity: AlertSeverity.SUCCES,
-        //   snackAlertText: "The operation was completed successfully!",
-        // }));
-        setTimeout(() => {
-          if (Math.random() < 0.5) {
-            resolve([
-              router.push("/"),
-
-              // window.history.pushState({}, "", `/`),
-              // window.location.reload(),
-            ]);
-          } else {
-            reject();
-            setState((state) => ({
-              ...state,
-              snackOpen: true,
-              snackSeverity: AlertSeverity.ERROR,
-              snackAlertText: "ERROR! Something's wrong...",
-            }));
-          }
-        });
-      });
+      ServerAnswer();
     } else {
       setState((state) => ({ ...state, phoneInputDirty: true }));
     }
@@ -63,51 +62,47 @@ const Payment = () => {
     if (e.target.name == "phone") {
       setState((state) => ({ ...state, phoneInputDirty: true }));
     }
-  };
-
-  const handleSumInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    const numberReg = /(?![0]).*^[0-9]*[.,]?[0-9]+$/g;
-    const inputValueNumber = Number(value);
-
-    if (numberReg.test(value) && inputValueNumber <= 1000) {
-      setState((state) => ({ ...state, inputValue: inputValueNumber }));
+    if (e.target.name == "currency") {
+      setState((state) => ({ ...state, currencyInputDirty: true }));
     }
   };
-
   return (
-    <div className="payment">
-      <h1>{query.id}</h1>
-      <div className="operator-payment">
-        <OperatorForm
-          phoneValue={state.phoneValue}
-          inputValue={state.inputValue}
-          phoneInputDirty={state.phoneInputDirty}
-          onChange={(phone: string) => {
-            setState((state) => ({ ...state, phoneValue: phone }));
+    <>
+      <Head>
+        <title>Payment</title>
+        <link rel="icon" href="/money.png" />
+      </Head>
+      <Main>
+        <Title>{query.id}</Title>
+        <OperatorPayment>
+          <OperatorForm
+            phoneValue={state.phoneValue}
+            phoneInputDirty={state.phoneInputDirty}
+            onChange={(phone: string) => {
+              setState((state) => ({ ...state, phoneValue: phone }));
+            }}
+            onBlurHandler={blurHandler}
+          />
+          <Button variant="contained" onClick={handleSubmit}>
+            Pay
+          </Button>
+          <div className="go_back">
+            <Link legacyBehavior href={"/"}>
+              Go back
+            </Link>
+          </div>
+        </OperatorPayment>
+        <Snack
+          isOpen={state.snackOpen}
+          onClose={() => {
+            setState((state) => ({ ...state, snackOpen: false }));
           }}
-          onSumInputChange={handleSumInputChange}
-          onBlurHandler={blurHandler}
-        />
-        <Button variant="contained" onClick={handleSubmit}>
-          Pay
-        </Button>
-        <div className="go_back">
-          <Link legacyBehavior href={"/"}>
-            Go back
-          </Link>
-        </div>
-      </div>
-      <Snack
-        isOpen={state.snackOpen}
-        onClose={() => {
-          setState((state) => ({ ...state, snackOpen: false }));
-        }}
-        severity={state.snackSeverity}
-      >
-        {state.snackAlertText}
-      </Snack>
-    </div>
+          severity={state.snackSeverity}
+        >
+          {state.snackAlertText}
+        </Snack>
+      </Main>
+    </>
   );
 };
 

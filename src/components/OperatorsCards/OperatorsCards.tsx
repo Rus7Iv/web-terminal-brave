@@ -2,18 +2,17 @@ import React from "react";
 import { motion } from "framer-motion";
 import { operators } from "@/constants/operators";
 import Link from "next/link";
+import { Cards } from "./OperatorsCards.styled";
 
 export const TopComponent = () => {
   return (
     <>
-      <h1 className="title">Web-terminal</h1>
-
-      <div className="operators-card">
+      <Cards>
         {operators.map((res) => {
           return (
             <Link legacyBehavior href={`/payment/${res.name}`} key={res.name}>
               <motion.button
-                className="item"
+                className="items"
                 initial="hidden"
                 animate="visible"
                 variants={{
@@ -44,7 +43,7 @@ export const TopComponent = () => {
             </Link>
           );
         })}
-      </div>
+      </Cards>
     </>
   );
 };
