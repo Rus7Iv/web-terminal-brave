@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 export const Cards = styled.div`
     align-items: center;
-    width: 93%;
+    width: 100%;
     display: inline-flex;
     justify-content: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 20px;
     flex-wrap: wrap;
 
     img{
@@ -28,7 +28,7 @@ export const Cards = styled.div`
         width: 100%;
         display: inline-flex;
         justify-content: center;
-        margin-bottom: 1.5rem;
+        margin-bottom: 20px;
         flex-wrap: wrap;
 
         .item{
@@ -44,7 +44,7 @@ export const Cards = styled.div`
         width: 100%;
         display: inline-flex;
         justify-content: center;
-        margin-bottom: 1.5rem;
+        margin-bottom: 20px;
         flex-wrap: wrap;
 
         .item{

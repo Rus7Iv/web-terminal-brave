@@ -4,7 +4,7 @@ export interface OperatorsTypes {
     img: string
 }
 
-export const operators: OperatorsTypes[] = [
+export const OPERATORS: OperatorsTypes[] = [
     {
         id: 1,
         name: 'MTS',

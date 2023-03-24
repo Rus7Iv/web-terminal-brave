@@ -12,40 +12,42 @@ export const OperatorPayment = styled.div`
     min-width: 300px;
     background-color: rgb(255, 255, 255);
     height: 300px;
-    font-size:x-large;
-    font-weight:700;
+    font-size: 25px;
+    font-weight: 700;
     border-radius: 20px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 20px;
     border: 2px solid #7affff;
     box-shadow: 1px 1px 10px rgb(96, 92, 92);
+    box-sizing: border-box;
+    padding: 50px;
 
     .input-box{
-        font-family: 'Open Sans', sans-serif;
-        font-weight:700;
+        font-weight: 700;
         margin-top: 15px;
-        margin-bottom: 20px;
-        border-radius: 0.45rem;
+        margin-bottom: 10px;
+        border-radius: 10px;
         padding-left: 15px;
+        display: block;
     };
 
     .go_back{
-        width: 85%;
+        width: 100%;
         margin-bottom: 0px;
         text-align: right;
-        font-size: small;
+        font-size: 15px;
     };
     .react-tel-input{
         text-shadow: 1px 1px 3px black;
-    };    
-
-    .special-label{
-        text-align: center;
+        display: block;
+    };   
+    .pay{
+        margin: 10px;
     };
     
     @media (max-width: 700px) {
-        font-size: xx-large;
+        font-size: 25px;
     };
     @media (max-width: 400px) {
-        font-size: xx-large;
+        font-size: 25px;
     };
 `;

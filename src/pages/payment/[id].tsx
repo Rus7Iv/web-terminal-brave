@@ -7,9 +7,10 @@ import Link from "next/link";
 import { OperatorPayment } from "@/components/Payment/Payment.styled";
 import { Main, Title } from "@/components/styles";
 import Head from "next/head";
+import GlobalStyle from "@/globalStyles";
 
 enum AlertSeverity {
-  SUCCES = "success",
+  SUCCESS = "success",
   INFO = "info",
   WARNING = "warning",
   ERROR = "error",
@@ -31,7 +32,7 @@ const Payment = () => {
       setState((state) => ({
         ...state,
         snackOpen: true,
-        snackSeverity: AlertSeverity.SUCCES,
+        snackSeverity: AlertSeverity.SUCCESS,
         snackAlertText: "The operation was successfully performed!",
       }));
       setTimeout(() => {
@@ -72,6 +73,7 @@ const Payment = () => {
         <title>Payment</title>
         <link rel="icon" href="/money.png" />
       </Head>
+      <GlobalStyle />
       <Main>
         <Title>{query.id}</Title>
         <OperatorPayment>
@@ -83,7 +85,7 @@ const Payment = () => {
             }}
             onBlurHandler={blurHandler}
           />
-          <Button variant="contained" onClick={handleSubmit}>
+          <Button variant="contained" onClick={handleSubmit} className="pay">
             Pay
           </Button>
           <div className="go_back">
